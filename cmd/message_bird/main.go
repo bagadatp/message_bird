@@ -60,10 +60,10 @@ func main() {
 			l.Printf("Error accepting connection %v", err)
 		}
 		go func() {
+			defer conn.Close()
 			err := handler.HandleUrls(conn, outputFile)
 			if err != nil {
 				l.Printf("Error handling connection: %v", err)
-				conn.Close()
 			}
 		}()
 	}
