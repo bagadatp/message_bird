@@ -1,0 +1,7 @@
+Design an HTTP API to send SMS messages to end-users.
+
+This API has 2 public endpoints. One is to send messages out. The other is to request the status of a previously sent message.
+
+Received messages are sent through an SMS relay service that actually delivers the SMS to a phone. The SMS relay will assign its own ID to the message sent to it and will use this ID when reporting status changes back to us.
+For each status change for a message (like delivered, expired, failed, etc) this relay service calls a private HTTP endpoint on our system to report it. What happens beyond this relay service is outside of the scope of this exercise.
+The traffic is expected to be significant, with spikes and to be ever increasing. Customers expect their messages to be delivered. Messages should be stored for auditing and troubleshooting purposes. Design accordingly.
